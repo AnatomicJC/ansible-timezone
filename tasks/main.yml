@@ -1,0 +1,18 @@
+---
+- name: Install tzdata if it is necessary
+  apt:
+    name: "{{ item }}"
+    state: "latest"
+  with_items:
+    - tzdata
+    - python-requests
+
+- name: Check if timezone should be autoset
+  include_tasks: autoset.yml
+  when: timezone == "autoset"
+
+- name: Check if timezone is an override value
+  include_tasks: custom.yml  
+  when: timezone != "autoset"
+
+- meta: flush_handlers

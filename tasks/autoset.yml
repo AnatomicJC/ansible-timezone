@@ -1,0 +1,9 @@
+---
+- name: Copy tzupdate script
+  copy:
+    src: "usr/local/bin/tzupdate.py"
+    dest: "/usr/local/bin/tzupdate.py"
+    mode: "0644"
+
+- name: Execute tzupdate script
+  shell: python /usr/local/bin/tzupdate.py
