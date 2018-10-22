@@ -1,11 +1,10 @@
 ---
-- name: Install tzdata if it is necessary
+- name: Install tzdata
   apt:
     name: "{{ item }}"
     state: "latest"
   with_items:
     - tzdata
-    - python-requests
 
 - name: Check if timezone should be autoset
   include_tasks: autoset.yml

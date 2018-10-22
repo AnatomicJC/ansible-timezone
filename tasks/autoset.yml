@@ -1,4 +1,11 @@
 ---
+- name: Install python-requests
+  apt:
+    name: "{{ item }}"
+    state: "latest"
+  with_items:
+    - python-requests
+
 - name: Copy tzupdate script
   copy:
     src: "usr/local/bin/tzupdate.py"
