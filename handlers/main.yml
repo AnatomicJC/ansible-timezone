@@ -2,4 +2,4 @@
 - name: Update tzdata
   command: dpkg-reconfigure --frontend noninteractive tzdata
   environment:
-    PATH: "${PATH}:/sbin:/usr/sbin"
+    PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
