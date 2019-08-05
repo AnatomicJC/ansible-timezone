@@ -2,14 +2,14 @@
 - name: Install tzdata
   apt:
     name: "tzdata"
-    state: "latest"
+    state: "present"
 
 - name: Check if timezone should be autoset
   include_tasks: autoset.yml
   when: timezone == "autoset"
 
 - name: Check if timezone is an override value
-  include_tasks: custom.yml  
+  include_tasks: custom.yml
   when: timezone != "autoset"
 
 - meta: flush_handlers

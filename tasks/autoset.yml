@@ -2,7 +2,7 @@
 - name: Install python-requests
   apt:
     name: "python-requests"
-    state: "latest"
+    state: "present"
 
 - name: Copy tzupdate script
   copy:
@@ -11,4 +11,5 @@
     mode: "0644"
 
 - name: Execute tzupdate script
-  shell: python /usr/local/bin/tzupdate.py
+  command: python /usr/local/bin/tzupdate.py
+  changed_when: False
